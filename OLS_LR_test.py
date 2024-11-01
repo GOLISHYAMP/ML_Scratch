@@ -1,4 +1,4 @@
-from my_ML_models.LinearRegression import LinearRegression
+from my_ML_models.OLS_LR import OLS
 
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
@@ -11,10 +11,10 @@ def mse(y_pred, y):
 X, y = datasets.make_regression(n_samples=500, n_features=1, noise= 50, random_state= 31)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size= 0.2, random_state= 31)
 
-lr_model = LinearRegression()
-lr_model.fit(X_train, y_train)
-print(lr_model.params())
-y_pred = lr_model.predict(X_test)
+OLS_model = OLS()
+OLS_model.fit(X_train, y_train)
+print(OLS_model.params())
+y_pred = OLS_model.predict(X_test)
 
 print("Accuracy = ", mse(y_pred, y_test))
 
